@@ -3,12 +3,16 @@
 <html>
 <head>
     <title>WK 2014 app</title>
+    <link rel="stylesheet" href="./styles/default.css" type="text/css" />
 </head>
 
 <body>
-    <h1>WK 2014 App<small>Build your own agenda</small></h1>
+    <div id="header">     
+    <h1>WK 2014 App <small>Build your own agenda</small></h1>
+    </div>
     
     <div id="form">
+        <h2>Insert a game you want to follow</h2>
         <form>
             <dl>
                 <dt>Game</dt>
@@ -16,27 +20,30 @@
                 <dt>Date</dt>
                 <dd><input type="text" name="date" /></dd>
                 <dt>Description</dt>
-                <dd><textarea rows="5" cols="36"></textarea></dd>
+                <dd><textarea rows="5" cols="36" name="description"></textarea></dd>
             </dl>
-            <input type="submit" value="save">
+            <input type="submit" value="Add to list">
         </form>
     </div>
     
     <div id="list">
+        <h2>You are monitoring the following games</h2>
         <ul>
-            <li>Nederland-Duitsland</li>
-            <li>Nederland-Argentinie</li>
-            <li>Spanje-Nederland</li>
-            <li>Engeland-Duitsland</li>
-            <li>Italie-Duitsland</li>
+            <li>02-06-2014 18:00 <b>Nederland</b>-Duitsland [2-1]</li>
+            <li>08-06-2014 21:00 <b>Nederland</b>-Argentinie [3-1]</li>
+            <li>18-06-2014 18:00 Spanje-Nederland</li>
+            <li>19-06-2014 21:00 Engeland-Duitsland</li>
+            <li>22-06-2014 18:00 Italie-Duitsland</li>
         </ul>
     </div>
     
     <div id="details">
+        <h2>Nederland-Duitsland</h2>
         <p>Nederland-Duitsland is de klassieker bij uitstek. Eerder gespeelde wedstrijden laten zien dat Duitsland vaker heeft gewonnen van Nederland, maar de statistieken laten ook zien dat
         Nederland in de laatste wedstrijden sterker is geweest dan de jaren ervoor. Interessante ontwikkelingen die nog wel eens leuke resultaten kunnen gaan geven.</p>
         
     </div>
+ 
 
 </body>
 </html>
