@@ -15,13 +15,22 @@
 
 <script>
     
+    //jQuery.support.cors = true;
+    
     // Main
     $(function(){
+       // $.ajax({ url:'http://ip.jsontest.com/', cache:false, success: function(data){ alert(JSON.stringify(data));}});
+        
         $("#btnSave").click(function(){
             var li = $("<li>");
-            var titlespan = $("<span class='title'>").text($("#game").val());
+            var datespan = $("<span class='date'>").text($("#date").val() + " ");
+            var titlespan = $("<span class='title'>").text($("#game").val() + " ");
             var descspan = $("<span class='desc'>").text($("#description").val()).addClass("hidden");
-            li.append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
+            var deletespan = $("<span class='delete'>").text(" [X] ").click(function(){
+                $(this).parent().remove();
+                });
+            
+            li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
         });
     });
     
@@ -34,30 +43,9 @@
 </script>
 
 <body>
-    <div id="header">     ING
+    <div id="header">
     <h1>WK 2014 App <small>Build your own agenda</small></h1>
     </div>
-    
-    <div>
-    Geef uw favo teams op:<br/>
-    Spanje <input type="checkbox" name="teams" value="spanje"><br/>
-    Duitsland <input type="checkbox" name="teams" value="duitsland"><br/>
-    Nederland <input type="checkbox" name="teams" value="nederland"><br/>
-    Brazilie <input type="checkbox" name="teams" value="brazilie"><br/>
-    Italie <input type="checkbox" name="teams" value="italie"><br/>
-    Belgie <input type="checkbox" name="teams"  value="belgie"><br/>
-    
-    <button id="btnDo" onclick="getSelected();">click me</button>
-    
-    </div>
-    
-    <script>
-          function getSelected(){
-            $("input:checked").each(function(){console.log($(this).val())});
-          }
-        
-        
-    </script>
     
     <div id="form">
         <h2>Insert a game you want to follow</h2>
@@ -66,7 +54,7 @@
                 <dt>Game</dt>
                 <dd><input type="text" name="game" id="game" value="vul in"/></dd>
                 <dt>Date</dt>
-                <dd><input type="text" name="date" /></dd>
+                <dd><input type="text" name="date" id="date" /></dd>
                 <dt>Description</dt>
                 <dd><textarea rows="5" cols="36" name="description" id="description"></textarea></dd>
             </dl>
