@@ -6,14 +6,58 @@
     
     <title>WK 2014 app</title>
     <link rel="stylesheet" href="./styles/default.css" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
+<style>
+    .hidden { display:none}
+</style>
 
+<script>
+    
+    // Main
+    $(function(){
+        $("#btnSave").click(function(){
+            var li = $("<li>");
+            var titlespan = $("<span class='title'>").text($("#game").val());
+            var descspan = $("<span class='desc'>").text($("#description").val()).addClass("hidden");
+            li.append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
+        });
+    });
+    
+    function clickLI(){
+        var detailspanel = "<h2>" + $(".title",this).text() + "</h2><p>" + $(".desc", this).text() + "</p>";
+         $("#details").html(detailspanel);
+    }
+    
+    
+</script>
 
 <body>
-    <div id="header">     
+    <div id="header">     ING
     <h1>WK 2014 App <small>Build your own agenda</small></h1>
     </div>
+    
+    <div>
+    Geef uw favo teams op:<br/>
+    Spanje <input type="checkbox" name="teams" value="spanje"><br/>
+    Duitsland <input type="checkbox" name="teams" value="duitsland"><br/>
+    Nederland <input type="checkbox" name="teams" value="nederland"><br/>
+    Brazilie <input type="checkbox" name="teams" value="brazilie"><br/>
+    Italie <input type="checkbox" name="teams" value="italie"><br/>
+    Belgie <input type="checkbox" name="teams"  value="belgie"><br/>
+    
+    <button id="btnDo" onclick="getSelected();">click me</button>
+    
+    </div>
+    
+    <script>
+          function getSelected(){
+            $("input:checked").each(function(){console.log($(this).val())});
+          }
+        
+        
+    </script>
     
     <div id="form">
         <h2>Insert a game you want to follow</h2>
@@ -26,7 +70,7 @@
                 <dt>Description</dt>
                 <dd><textarea rows="5" cols="36" name="description" id="description"></textarea></dd>
             </dl>
-            <input type="button" value="Add to list" onclick="javascript:naam();">
+            <input type="button" value="Add to list" id="btnSave">
         </form>
     </div>
     
@@ -45,36 +89,7 @@
         <h2>Nederland-Duitsland</h2>
         <p>Nederland-Duitsland is de klassieker bij uitstek. Eerder gespeelde wedstrijden laten zien dat Duitsland vaker heeft gewonnen van Nederland, maar de statistieken laten ook zien dat
         Nederland in de laatste wedstrijden sterker is geweest dan de jaren ervoor. Interessante ontwikkelingen die nog wel eens leuke resultaten kunnen gaan geven.</p>
-        
     </div>
- 
 
 </body>
-
-<script>
-var games = {};
-
-function showDescription(){
-    var title = window.event.srcElement.innerText;
-    var desc = games[title];
-    var details = "<h2>" + title + "</h2>" + "<p>" + desc + "</p>";
-    var detailselement = document.getElementById("details");
-    detailselement.innerHTML = details;
-    
-}
-
-function naam(argumenten){
-    var title = document.getElementById("game").value;
-    var description = document.getElementById("description").value;
-    
-    games[title] = description;
-    
-    var gamelist = document.getElementById("gamelist");
-    var innerhtml = gamelist.innerHTML;
-    innerhtml += "<li>" + title + "</li>";
-    gamelist.innerHTML = innerhtml;
- }
-    
-</script>
-
 </html>
