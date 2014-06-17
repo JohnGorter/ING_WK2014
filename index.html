@@ -2,9 +2,13 @@
 
 <html>
 <head>
+    
+    
     <title>WK 2014 app</title>
     <link rel="stylesheet" href="./styles/default.css" type="text/css" />
 </head>
+
+
 
 <body>
     <div id="header">     
@@ -16,19 +20,19 @@
         <form>
             <dl>
                 <dt>Game</dt>
-                <dd><input type="text" name="game" /></dd>
+                <dd><input type="text" name="game" id="game" value="vul in"/></dd>
                 <dt>Date</dt>
                 <dd><input type="text" name="date" /></dd>
                 <dt>Description</dt>
-                <dd><textarea rows="5" cols="36" name="description"></textarea></dd>
+                <dd><textarea rows="5" cols="36" name="description" id="description"></textarea></dd>
             </dl>
-            <input type="submit" value="Add to list">
+            <input type="button" value="Add to list" onclick="javascript:naam();">
         </form>
     </div>
     
     <div id="list">
         <h2>You are monitoring the following games</h2>
-        <ul>
+        <ul id="gamelist" onclick="showDescription();">
             <li>02-06-2014 18:00 <b>Nederland</b>-Duitsland [2-1]</li>
             <li>08-06-2014 21:00 <b>Nederland</b>-Argentinie [3-1]</li>
             <li>18-06-2014 18:00 Spanje-Nederland</li>
@@ -44,6 +48,43 @@
         
     </div>
  
+ <div id="mydiv">
+    <button onclick="alert('button click');">button</button>
+ </div>
 
 </body>
+
+<script>
+var mydiv = document.getElementById("mydiv");
+mydiv.addEventListener("click", function() {
+    alert('clicked me');
+    window.event.preventDefault();
+    window.event.stopPropagation();
+    }, false);
+ 
+var games = {};
+
+function showDescription(e){
+    var title = window.event.srcElement.innerHTML;
+    var desc = games[title];
+    var details = "<h2>" + title + "</h2>" + "<p>" + desc + "</p>";
+    var detailselement = document.getElementById("details");
+    detailselement.innerHTML = details;
+    
+}
+
+function naam(argumenten){
+    var title = document.getElementById("game").value;
+    var description = document.getElementById("description").value;
+    
+    games[title] = description;
+    
+    var gamelist = document.getElementById("gamelist");
+    var innerhtml = gamelist.innerHTML;
+    innerhtml += "<li>" + title + "</li>";
+    gamelist.innerHTML = innerhtml;
+ }
+    
+</script>
+
 </html>
