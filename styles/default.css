@@ -1,5 +1,6 @@
 
 h1 {color:white;}
+h2 {font-size:12px}
 
 div {
     background-color: yellow;
@@ -7,7 +8,7 @@ div {
     padding:5px;
     border-radius: 10px;
     font-family: Tahoma;
-    font-size: 20px;
+    font-size: 11px;
     text-align: justify;
     }
 
