@@ -5,54 +5,27 @@
     <title>WK 2014 app</title>
     
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./styles/default.css"/>
+    
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="./bootstrap/js/bootstrap.js"></script>
+    <script src="./Scripts/main.js"></script>
 </head>
 
-<style>
-    .col-xs-12 { margin-bottom:20px;}
-    #header, #form, #list, #details {padding:10px;border:1px solid black;border-radius: 10px;background-color: yellow}
-</style>
-
-<script>
-    //jQuery.support.cors = true;
-    // Main
-    $(function(){
-       // $.ajax({ url:'http://ip.jsontest.com/', cache:false, success: function(data){ alert(JSON.stringify(data));}});
-        
-        $("#btnSave").click(function(){
-            var li = $("<li>");
-            var datespan = $("<span class='date'>").text($("#date").val() + " ");
-            var titlespan = $("<span class='title'>").text($("#game").val() + " ");
-            var descspan = $("<span class='desc'>").text($("#description").val()).addClass("hidden");
-            var deletespan = $("<span class='delete'>").text(" [X] ").click(function(){
-                $(this).parent().remove();
-                });
-            
-            li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
-        });
-    });
-    
-    function clickLI(){
-        var detailspanel = "<h2>" + $(".title",this).text() + "</h2><p>" + $(".desc", this).text() + "</p>";
-         $("#details").html(detailspanel);
-    }
-</script>
-
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div id="header">
-                    <h1>WK 2014 App <small>Build your own agenda</small></h1>
+                <div class="jumbotron">
+                    <h1>WK 2014 <small style="color:gold">Your own agenda</small></h1>
                 </div>
             </div>
         </div>
-        <div class="row">&nbsp;</div>
+        
         <div class="row">
            <div class="col-xs-12 col-sm-4">
                <div id="form">
-                    <h2>Insert a game you want to follow</h2>
+                    <h2>Insert game to follow</h2>
                     <form>
                     <dl>
                         <dt>Game</dt>
@@ -62,15 +35,15 @@
                         <dt>Description</dt>
                         <dd><textarea rows="5"  name="description" id="description"></textarea></dd>
                     </dl>
-                    <input type="button" value="Add to list" id="btnSave">
+                    <input type="button" value="Add to list" id="btnSave" class="btn btn-primary">
                     </form>
                 </div>
             </div>
         
             <div class="col-xs-12 col-sm-4">
                 <div id="list">
-                    <h2>You are monitoring the following games</h2>
-                    <ul id="gamelist">
+                    <h2>Monitoring games</h2>
+                    <ul id="gamelist" class="list-group">
                 </ul>
                 </div>
             </div>

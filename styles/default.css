@@ -1,22 +1,57 @@
+@font-face {
+    font-family: myfont;
+    src: url(font.otf);
+    }
 
-h1 {color:white;}
-h2 {font-size:12px}
-
-div {
-    background-color: yellow;
-    margin:5px;
-    padding:5px;
-    border-radius: 10px;
-    font-family: Tahoma;
-    font-size: 11px;
-    text-align: justify;
+h1  {
+    color:white;
+    }
+h2  {
+    font-size:20px;
+    color:green;
     }
 
 body {
-    background-image: url('../images/bg.jpeg');
+    background-image: url('../images/bg Copy.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    
-}
+    font-family: myfont;
+    font-size:15px;
+    font-weight: bold;
+    }
 
+ul {
+    list-style: none
+    }
+
+.btn {
+    font-size: 20px;
+    }
+    
+.col-xs-12 {
+    margin-bottom:20px;
+    }
+    
+.jumbotron {
+    color:white;
+    background-image: url('../images/bg.jpg');
+    background-size:100%;
+    }
+    
+.jumbotron {
+        box-shadow: 4px 4px 2px 2px #888;
+     }
+     
+#form,
+#list,
+#details {
+    padding-left:10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border-width:1px;
+    border-color:black;
+    border-style: solid;
+    border-radius: 10px;
+    background:linear-gradient(yellow,white);
+    box-shadow: 4px 4px 2px 2px #888 ;
+    }
 
