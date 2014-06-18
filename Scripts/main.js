@@ -3,6 +3,7 @@
     // Main
     $(function(){
        // $.ajax({ url:'http://ip.jsontest.com/', cache:false, success: function(data){ alert(JSON.stringify(data));}});
+        var datestring = new Date().getFullYear() + "-0" + (new Date().getMonth() + 1) +"-" + new Date().getDate();
         $("#date").val(datestring);
         
         $("#btnSave").click(function(){
@@ -26,6 +27,8 @@
             li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
             
             $("#game").val("");
+            $("#form").append('<div class="alert alert-success alert-dismissable" id="divalert"><button class="close" data-dismiss="alert">&times;</button><strong>Toegevoegd</strong> Deze wedstrijd is toegevoegd!</div>');
+            $(".alert").delay(2000).fadeOut(2000);
         });
     });
     
