@@ -5,35 +5,35 @@
     <title>Page Title</title>
 </head>
 
-<body>
+<body style="height:100%">
 
 <style>
-    input:valid {border:10px solid green;}
-    input:invalid {border:10px solid red;}
+    .container { display:flex;flex-direction:row;}
     
-    input:valid + span { visibility:hidden;}
-    input:invalid + span { visibility:visible;}
-    
+    @media screen and (max-width:400px){
+        .container { display:flex;flex-direction:column;}
+        
+    }
+
+    .box {background-color:red;color:white;margin:5px;}
+   
 </style>
 
-<script>
-    function onclick() {
-       document.getElementById("username").setCustomValidity("Doe effe!");
-        document.getElementById("submitbutton").click();
-    }
-    
-</script>
-<form>
-    <div>
-        <input type="username" name="username" id="username" placeholder="uw naam" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" required="required" title="naam invullen" value="naam"/>
-        <span>wel effe een naam invullen</span>
-        <input type="date" />
-        <span>hello world</span>
+<div class="container">
+    <div class="box" style="width:100px;" >
+        <div class="container2">
+            <div class="block2">1</div>
+            <div class="block2">1</div>
+            <div class="block2">1</div>
+            <div class="block2">1</div>            
+        </div>
     </div>
-    
-    <input type="button" value="save" id="button" onclick="javascript:onclick();"/>
-    <input type="submit" id="submitbutton"/>
-</form>
+    <div class="box" style="width:100px;flex:3" >2<br/>lhsdklasjlda</div>
+    <div class="box" style="width:100px;flex:1" >3<br/><br/>dhqwiojiojqw</div>
+    <div class="box" style="width:100px;flex:5" >4<br/><br/><br/>wqoijeiqwjeiojq<br/><br/><br/>wqoijeiqwjeiojq</div>
+   
+</div>
+ 
 
 </body>
 </html>

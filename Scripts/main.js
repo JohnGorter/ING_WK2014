@@ -25,6 +25,7 @@
             li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
             
             $("#game").val("");
+            $("#description").val("");
             $("#panel").prepend('<div class="alert alert-success alert-dismissable" id="divalert"><button class="close" data-dismiss="alert">&times;</button>Wedstrijd is toegevoegd!</div>');
             $(".alert").delay(5000).fadeOut(200);
         });

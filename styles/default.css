@@ -1,54 +1,28 @@
-/* variables */
-/* end variables */
-/* mixins */
-/* end mixins */
-@font-face {
-  font-family: myfont;
-  src: url(font.otf);
-}
-h1 {
-  color: green;
-}
-h2 {
-  font-size: 20px;
-  color: #008000;
-}
-body {
-  background-size: 100%;
-  font-family: myfont;
-  font-size: 15px;
-  font-weight: bold;
-}
-ul {
-  list-style: none;
-}
-.btn {
-  font-size: 20px;
-}
-.col-xs-12 {
-  margin-bottom: 20px;
-}
-.jumbotron {
-  color: #fff;
-  background-image: url('../images/bg.jpg');
-  background-size: 100%;
-}
-.jumbotron {
-  box-shadow: 4px 4px 2px 2px #fff;
-}
+/* additional resources */
+@font-face {  font-family: myfont;src: url(font.otf); }
 
-#form,
-#list,
-#details {
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  border-radius: 10px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  background: linear-gradient(#ffff00, #fff);
-  box-shadow: 4px 4px 2px 2px #fff;
-}
+/* element style rules */
+h1 { color: green; text-shadow: 5px 5px 5px black; }
+h2 { font-size: 20px; color: #008000; }
+body { background-size: 100%; font-family: myfont; font-size: 15px; font-weight: bold; }
+ul { list-style: none; }
 input:valid + span { visibility: hidden;}
 input:invalid + span { visibility: visible}
+
+/* class style rules */
+.btn { font-size: 20px; }
+.jumbotron { color: #fff; background-image: url('../images/bg.jpg'); background-size: 100%; }
+.jumbotron { box-shadow: 4px 4px 2px 2px gray; border-radius: 10px; }
+.flexcontainer {display:flex;flex-direction:row;flex-wrap:wrap}
+.flexbox { margin:10px;}
+
+/* id style rules */
+#form,
+#list,
+#details { border-width: 1px; border-color: black; border-style: solid; box-shadow: 4px 4px 2px 2px gray;border-radius: 10px; padding-left: 10px; padding-bottom: 10px; padding-right: 10px; background: linear-gradient(#ffff00, #fff);}
+#header,
+#headertype { width:100%;}
+
+/* adaptive rendering rules */
+@media screen and (max-width:786px){ #list,#details { width:100%;} }
+@media screen and (min-width:786px){ #list,#details { flex:1;} }
