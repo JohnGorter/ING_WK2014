@@ -1,57 +1,54 @@
+/* variables */
+/* end variables */
+/* mixins */
+/* end mixins */
 @font-face {
-    font-family: myfont;
-    src: url(font.otf);
-    }
-
-h1  {
-    color:white;
-    }
-h2  {
-    font-size:20px;
-    color:green;
-    }
-
+  font-family: myfont;
+  src: url(font.otf);
+}
+h1 {
+  color: green;
+}
+h2 {
+  font-size: 20px;
+  color: #008000;
+}
 body {
-    background-image: url('../images/bg Copy.jpg');
-    background-size: cover;
-    font-family: myfont;
-    font-size:15px;
-    font-weight: bold;
-    }
-
+  background-size: 100%;
+  font-family: myfont;
+  font-size: 15px;
+  font-weight: bold;
+}
 ul {
-    list-style: none
-    }
-
+  list-style: none;
+}
 .btn {
-    font-size: 20px;
-    }
-    
+  font-size: 20px;
+}
 .col-xs-12 {
-    margin-bottom:20px;
-    }
-    
+  margin-bottom: 20px;
+}
 .jumbotron {
-    color:white;
-    background-image: url('../images/bg.jpg');
-    background-size:100%;
-    }
-    
+  color: #fff;
+  background-image: url('../images/bg.jpg');
+  background-size: 100%;
+}
 .jumbotron {
-        box-shadow: 4px 4px 2px 2px #888;
-     }
-     
+  box-shadow: 4px 4px 2px 2px #fff;
+}
+
 #form,
 #list,
 #details {
-    padding-left:10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    border-width:1px;
-    border-color:black;
-    border-style: solid;
-    border-radius: 10px;
-    background:linear-gradient(yellow,white);
-    box-shadow: 4px 4px 2px 2px #888 ;
-    }
-
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  background: linear-gradient(#ffff00, #fff);
+  box-shadow: 4px 4px 2px 2px #fff;
+}
+input:valid + span { visibility: hidden;}
+input:invalid + span { visibility: visible}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+<style>
+    input:valid {border:10px solid green;}
+    input:invalid {border:10px solid red;}
+    
+    input:valid + span { visibility:hidden;}
+    input:invalid + span { visibility:visible;}
+    
+</style>
+
+<script>
+    function onclick() {
+       document.getElementById("username").setCustomValidity("Doe effe!");
+        document.getElementById("submitbutton").click();
+    }
+    
+</script>
+<form>
+    <div>
+        <input type="username" name="username" id="username" placeholder="uw naam" pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" required="required" title="naam invullen" value="naam"/>
+        <span>wel effe een naam invullen</span>
+        <input type="date" />
+        <span>hello world</span>
+    </div>
+    
+    <input type="button" value="save" id="button" onclick="javascript:onclick();"/>
+    <input type="submit" id="submitbutton"/>
+</form>
+
+</body>
+</html>

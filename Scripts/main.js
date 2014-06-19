@@ -7,13 +7,11 @@
         $("#date").val(datestring);
         
         $("#btnSave").click(function(){
-            if ($("#game").val() == "" || $("#game").val() == "vul in") {
-                $("#gamegroup").addClass("has-error");
-                $("span", "#gamegroup").addClass("glyphicon-remove");
-                return;
-            }else{
-                $("#gamegroup").removeClass("has-error");
-                $("span", "#gamegroup").removeClass("glyphicon-remove");
+            if (!$("#myform").get(0).checkValidity()) {
+                window.event.preventDefault();
+                window.event.stopPropagation();
+                
+                return ;
             }
                 
             var li = $("<li class='list-group-item'>");
@@ -27,8 +25,8 @@
             li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
             
             $("#game").val("");
-            $("#form").append('<div class="alert alert-success alert-dismissable" id="divalert"><button class="close" data-dismiss="alert">&times;</button><strong>Toegevoegd</strong> Deze wedstrijd is toegevoegd!</div>');
-            $(".alert").delay(2000).fadeOut(2000);
+            $("#panel").prepend('<div class="alert alert-success alert-dismissable" id="divalert"><button class="close" data-dismiss="alert">&times;</button>Wedstrijd is toegevoegd!</div>');
+            $(".alert").delay(5000).fadeOut(200);
         });
     });
     
