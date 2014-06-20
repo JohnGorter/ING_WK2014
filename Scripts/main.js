@@ -8,8 +8,31 @@
         if (window.localStorage['games']) {
             games = JSON.parse(window.localStorage['games']);
             for (game in games)
-                insertGame(games[game], false);
+                insertGame(games[game], false, false);
         }
+        
+        // drag and drop support
+        var list = document.getElementById("list");
+        list.ondragover = function(){
+            $("#list").addClass("hovering");
+            return false;};
+        
+        list.ondragend = function(){
+            $("#list").removeClass("hovering");
+            return false;};
+        
+        list.ondrop = function(e){
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var newgames = JSON.parse(event.target.result);
+                for (game in newgames)
+                    insertGame(newgames[game], false, true);
+                
+            };
+            reader.readAsText(e.dataTransfer.files[0]);
+            e.preventDefault();
+            return false;
+            };
         
         //$.ajax({ url:'http://www.johngorter.com/score/getscores', cache:false, success: function(data){ alert(JSON.stringify(data));}});
         
@@ -29,22 +52,29 @@
                date: $("#date").val()
              };
              
-             insertGame(game, true);
-             
-             games.push(game);
-             window.localStorage['games'] = JSON.stringify(games);
-             
-           
+             insertGame(game, true, true);
         });
     });
     
-    function insertGame(g, bShowAlert){
+    function deleteGame(g) {
+        var currentgame = g;
+        for (game in games) {
+           if(games[game].title == currentgame.title) {
+                 games.splice(game,1);
+            }   
+        }
+        window.localStorage['games'] = JSON.stringify(games);
+    }
+    
+    function insertGame(g, bShowAlert, bShouldStore){
+        
          var li = $("<li class='list-group-item'>");
             var datespan = $("<span class='date'>").text(g.date + " ");
             var titlespan = $("<span class='title'>").text(g.title + " ");
             var descspan = $("<span class='desc'>").text(g.description).addClass("hidden");
-            var deletespan = $("<span class='delete glyphicon glyphicon-trash'>").html("&nbsp;&nbsp;").click(function(){
+            var deletespan = $("<span class='delete glyphicon glyphicon-trash'>").html("&nbsp;&nbsp;").bind("click", { game:g }, function(){
                 $(this).parent().remove();
+                deleteGame(g);
                 });
             
             li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
@@ -54,6 +84,11 @@
             if (bShowAlert) {
               $("#panel").prepend('<div class="alert alert-success alert-dismissable" id="divalert"><button class="close" data-dismiss="alert">&times;</button>Wedstrijd is toegevoegd!</div>');
               $(".alert").delay(5000).fadeOut(200);
+            }
+            
+            if (bShouldStore) {
+                games.push(g);
+                window.localStorage['games'] = JSON.stringify(games);
             }
     }
     

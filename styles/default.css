@@ -15,12 +15,13 @@ input:invalid + span { visibility: visible}
 .jumbotron { box-shadow: 4px 4px 2px 2px gray; border-radius: 10px; }
 .flexcontainer {display:flex;flex-direction:row;flex-wrap:wrap}
 .flexbox { margin:10px;}
+.hovering { box-shadow: 4px 4px 2px 2px gray;}
 
 /* id style rules */
 #form,
 #list,
 #video,
-#details { border-width: 1px; border-color: black; border-style: solid; box-shadow: 4px 4px 2px 2px gray;border-radius: 10px; padding-left: 10px; padding-bottom: 10px; padding-right: 10px; background: linear-gradient(#ffff00, #fff);}
+#details { border-width: 1px; border-color: black; border-style: solid; border-radius: 10px; padding-left: 10px; padding-bottom: 10px; padding-right: 10px; background: linear-gradient(#ffff00, #fff);}
 #header,
 #video,
 #headertype { width:100%;}
