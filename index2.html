@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="./styles/default.css"/>
     <link rel="stylesheet/less" type="text/css" href="./styles/styles.less" />
     
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
+    <script src="./Scripts/jquery-1.11.1.min.js"></script>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="./Scripts/modernizr.js"></script>
     <script src="./Scripts/main.js"></script>
 </head>
 
-<body>
+
+
+<body id="body">
     <div class="flexcontainer">
         <div class="flexbox" id="headertype">
                 <div class="hidden-xs" style="color:white;text-align: center">
@@ -87,4 +88,18 @@
     
 
 </body>
+
+<script>
+    var body = document.getElementById("body");
+    body.style.backgroundColor = navigator.onLine ? "green" : "red";
+    
+    body.ononline = function(){
+       body.style.backgroundColor = "green"; 
+        };
+    
+    body.onoffline = function(){
+        body.style.backgroundColor = "red";
+        };
+    
+</script>
 </html>

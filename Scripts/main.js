@@ -74,7 +74,7 @@
             var descspan = $("<span class='desc'>").text(g.description).addClass("hidden");
             var deletespan = $("<span class='delete glyphicon glyphicon-trash'>").html("&nbsp;&nbsp;").bind("click", { game:g }, function(){
                 $(this).parent().remove();
-                deleteGame(g);
+                deleteGame(event.data.game);
                 });
             
             li.append(deletespan).append(datespan).append(titlespan).append(descspan).click(clickLI).appendTo($("#gamelist"));
